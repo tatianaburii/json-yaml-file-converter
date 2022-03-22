@@ -26,11 +26,34 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>converter.Runner</mainClass>
+                                <mainClass>converter.Converter</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
                 </plugin>
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-shade-plugin</artifactId>-->
+<!--                    <version>2.3</version>-->
+<!--                    <executions>-->
+<!--                        &lt;!&ndash; Run shade goal on package phase &ndash;&gt;-->
+<!--                        <execution>-->
+<!--                            <phase>package</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>shade</goal>-->
+<!--                            </goals>-->
+<!--                            <configuration>-->
+<!--                                <transformers>-->
+<!--                                    &lt;!&ndash; add Main-Class to manifest file &ndash;&gt;-->
+<!--                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                                        <mainClass>converter.Runner</mainClass>-->
+<!--                                    </transformer>-->
+<!--                                </transformers>-->
+<!--                            </configuration>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
+
             </plugins>
         </pluginManagement>
     </build>
@@ -102,44 +125,41 @@
             <version>3.15.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.google.guava</groupId>-->
+<!--            <artifactId>guava</artifactId>-->
+<!--            <version>31.1-jre</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-            <version>1.2.11</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ch.qos.logback</groupId>-->
+<!--            <artifactId>logback-core</artifactId>-->
+<!--            <version>1.2.11</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-                 <artifactId>logback-classic</artifactId>
-               <version>1.2.11</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ch.qos.logback</groupId>-->
+<!--            <artifactId>logback-classic</artifactId>-->
+<!--            <version>1.2.11</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-              <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-api</artifactId>-->
+<!--            <version>1.7.36</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>log4j</groupId>-->
+<!--            <artifactId>log4j</artifactId>-->
+<!--            <version>1.2.17</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.6.4</version>
-        </dependency>
-
-
-
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-simple</artifactId>-->
+<!--            <version>1.7.36</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>
