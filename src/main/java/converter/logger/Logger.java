@@ -21,7 +21,7 @@ public class Logger {
         File logFile = new File(folder + File.separator + "result.log");
         return logFile;
     }
-    public void writeResult(File file, File newFile) throws IOException, URISyntaxException {
+    public void info(File file, File newFile) throws IOException, URISyntaxException {
         PrintWriter writer = new PrintWriter((new FileWriter(createLogFile(), true)));
         long bytesF = Files.size(file.toPath());
         long bytesNF = Files.size(newFile.toPath());
@@ -30,14 +30,20 @@ public class Logger {
         writer.println("Size: " + bytesF + "-->>" + bytesNF);
         writer.close();
     }
-    public void writeResult(String info) throws IOException, URISyntaxException {
+    public void info(String info) throws IOException, URISyntaxException {
         PrintWriter writer = new PrintWriter((new FileWriter(createLogFile(), true)));
         writer.println(info);
         writer.close();
     }
-    public void writeResult(Double info) throws IOException, URISyntaxException {
+    public void info(Double info) throws IOException, URISyntaxException {
         PrintWriter writer = new PrintWriter((new FileWriter(createLogFile(), true)));
         writer.println(info);
+        writer.close();
+    }
+    public void error(String info, Throwable e) throws IOException, URISyntaxException {
+        PrintWriter writer = new PrintWriter((new FileWriter(createLogFile(), true)));
+        writer.println("---" + date + "---");
+        writer.println(info + e.toString());
         writer.close();
     }
 
