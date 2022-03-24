@@ -3,28 +3,26 @@ package converter;
 import converter.cprocesor.ConvertToJson;
 import converter.cprocesor.ConvertToYaml;
 import converter.utils.FileUtils;
+import lombok.Data;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Set;
-
+@Data
 public class Converter {
+
+    private final String path = new File((Converter.class.getProtectionDomain()
+            .getCodeSource().getLocation().toURI()).getPath()).getParent();
 
     public static void main(String[] args) throws URISyntaxException, IOException {
 
         Converter converter = new Converter();
-        String path2 = new File((Converter.class
-                .getProtectionDomain()
-                .getCodeSource().getLocation()
-                .toURI()).getPath())
-                .getParent();
-
 
         if (args.length != 0) {
             converter.checkFileAndCallConverter(new FileUtils().getFilesList(args[0]));
         } else {
-            converter.checkFileAndCallConverter(new FileUtils().getFilesList(path2));}
+            converter.checkFileAndCallConverter(new FileUtils().getFilesList(converter.path));}
 
     }
 
@@ -38,5 +36,7 @@ public class Converter {
                 System.out.println("File called [" + file.toPath().getFileName() + "] is not valid!");
             }
         }
+    }
+    public Converter() throws URISyntaxException {
     }
 }

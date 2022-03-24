@@ -22,12 +22,12 @@ public class FileUtils {
     }
 
     public String getOutputFolder(File file) {
-        File newFile = new File( file.getParent() + File.separator + "created");
+        File newFile = new File(file.getParent() + File.separator + "created");
         newFile.mkdir();
         return newFile.getAbsolutePath();
     }
 
-    public String getOutputFile(File file) {
+    public String getOutputFilePathWithoutExtension(File file) {
         return getOutputFolder(file) + File.separator + getNameWithoutExtension(file);
     }
 
@@ -37,7 +37,7 @@ public class FileUtils {
     }
 
     public String getNameWithoutExtension(File file) {
-        return file.getName().substring(0, file.getName().indexOf(getFileExtension(file)));
+        return file.getName().substring(0, file.getName().indexOf(getFileExtension(file)) - 1);
     }
 
 

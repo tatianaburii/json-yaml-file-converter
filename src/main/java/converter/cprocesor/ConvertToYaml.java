@@ -13,6 +13,10 @@ import java.nio.file.Files;
 
 public class ConvertToYaml implements Convert {
     Logger logger = new Logger();
+
+    public ConvertToYaml() throws URISyntaxException {
+    }
+
     @Override
     public void convert(File file) throws IOException, URISyntaxException {
         try {
@@ -21,7 +25,7 @@ public class ConvertToYaml implements Convert {
             ObjectMapper jsonReader = new ObjectMapper(new JsonFactory());
             Object obj = jsonReader.readValue(content, Object.class);
             ObjectMapper yamlWriter = new ObjectMapper(new YAMLFactory());
-            File newFile = new File(new FileUtils().getOutputFile(file) + "yaml");
+            File newFile = new File(new FileUtils().getOutputFilePathWithoutExtension(file) + ".yaml");
             yamlWriter.writeValue(newFile, obj);
 
             logger.info(file, newFile);
